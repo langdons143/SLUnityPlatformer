@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 2560
     height: 1509
   m_ShowMode: 4
-  m_Title: Inspector
+  m_Title: Game
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 321}
   m_MaxSize: {x: 10000, y: 10000}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 138
+  controlID: 136
   draggingID: 0
 --- !u!114 &3
 MonoBehaviour:
@@ -381,7 +381,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -389,16 +389,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Users\slbun\Documents\UnityPlat\UnityPlatformer
+  m_LastProjectPath: C:\Users\slbun\OneDrive\Documents\UnityPlat\UnityPlatformer1\UnityPlatformer
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: a0650000
-    m_LastClickedID: 26016
-    m_ExpandedIDs: 000000009665000000ca9a3bffffff7f
+    m_SelectedIDs: 76060000
+    m_LastClickedID: 1654
+    m_ExpandedIDs: 000000003206000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -426,7 +426,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000096650000
+    m_ExpandedIDs: 0000000032060000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -566,9 +566,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: 4ab10000
       m_LastClickedID: 0
-      m_ExpandedIDs: 62f9ffff
+      m_ExpandedIDs: 52affeffa2affeffdcaffeff20b0feffecb0feff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1107,7 +1107,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
+    m_EnableMouseInput: 0
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
