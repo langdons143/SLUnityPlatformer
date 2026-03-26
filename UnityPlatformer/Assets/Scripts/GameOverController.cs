@@ -10,17 +10,18 @@ public class GameOverController : MonoBehaviour
 
     void Start()
     {
-        int finalScore = PlayerPrefs.GetInt("FinalScore", 0);
-        scoreText.text = "Final Score: " + finalScore;
+        scoreText.text = "Final Score: " + GameManager.Instance.score;
     }
 
     public void Retry()
     {
+        GameManager.Instance.ResetGame();
         SceneManager.LoadScene(2);
     }
 
     public void ReturnToMenu()
     {
+        GameManager.Instance.ResetGame();
         SceneManager.LoadScene(1);
     }
 }

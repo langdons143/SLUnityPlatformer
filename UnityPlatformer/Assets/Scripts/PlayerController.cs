@@ -8,19 +8,13 @@ public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public float jumpForce = 12f;
-    public TextMeshProUGUI healthText;
-    public TextMeshProUGUI scoreText;
 
     private Rigidbody2D rb;
     private bool isGrounded = false;
-    private int health = 100;
-    private int score = 0;
-
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        UpdateUI();
     }
 
     void Update()
@@ -34,6 +28,9 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
+        
+        
+
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -44,23 +41,13 @@ public class PlayerController : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            health -= 10;
-            UpdateUI();
+            GameManager.Instance.TakeDamage(10);
 
-            if (health <= 0)
+            if (GameManager.Instance.health <= 0)
             {
-                GameOver();
+                GameManager.Instance.TriggerGameOver();
             }
         }
-    }
-
-    public void GameOver()
-    {
-        // Save score before loading GameOver scene
-        PlayerPrefs.SetInt("FinalScore", score);
-        PlayerPrefs.Save(); // Force write to disk
-
-        SceneManager.LoadScene(3);
     }
 
     void OnCollisionExit2D(Collision2D collision)
@@ -75,16 +62,9 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("Coin"))
         {
-            score += 10;
+            GameManager.Instance.AddScore(10);
             Destroy(other.gameObject);
-            UpdateUI();
         }
-    }
-
-    void UpdateUI()
-    {
-        healthText.text = "Health: " + health;
-        scoreText.text = "Score: " + score;
     }
 
 }
