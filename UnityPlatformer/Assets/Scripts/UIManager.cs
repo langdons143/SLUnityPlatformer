@@ -10,18 +10,31 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI healthText;
 
-    void OnEnable()
+    void Start()
     {
-        GameManager.Instance.onScoreChanged += UpdateScore;
-        GameManager.Instance.onHealthChanged += UpdateHealth;
-        GameManager.Instance.onGameOver += HandleGameOver;
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.onScoreChanged += UpdateScore;
+            GameManager.Instance.onHealthChanged += UpdateHealth;
+            GameManager.Instance.onGameOver += HandleGameOver;
+
+            UpdateScore(GameManager.Instance.score);
+            UpdateHealth(GameManager.Instance.health);
+        }
+        else
+        {
+            Debug.LogError("UIManager: GameManager.Instance is null");
+        }
     }
 
-    void OnDisable()
+    void OnDestroy()
     {
-        GameManager.Instance.onScoreChanged -= UpdateScore;
-        GameManager.Instance.onHealthChanged -= UpdateHealth;
-        GameManager.Instance.onGameOver -= HandleGameOver;
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.onScoreChanged -= UpdateScore;
+            GameManager.Instance.onHealthChanged -= UpdateHealth;
+            GameManager.Instance.onGameOver -= HandleGameOver;
+        }
     }
 
     void UpdateScore(int newScore)

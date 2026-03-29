@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        //Debug.Log("PlayerController is running");
+
     }
 
     void Update()
@@ -27,9 +29,9 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+
+            AudioManager.Instance.PlaySoundEffect(AudioManager.Instance.jumpSound);
         }
-        
-        
 
     }
     void OnCollisionEnter2D(Collision2D collision)
@@ -60,10 +62,14 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+
+        //Debug.Log("Triggered with: " + other.name + " Tag: " + other.tag);
+
         if (other.CompareTag("Coin"))
         {
+            //Debug.Log("Coin collected");
             GameManager.Instance.AddScore(10);
-            Destroy(other.gameObject);
+            CoinPoolManager.Instance.ReturnCoin(other.gameObject);
         }
     }
 

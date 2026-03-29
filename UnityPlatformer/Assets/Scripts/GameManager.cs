@@ -7,8 +7,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    public event Action<int> onScoreChanged;
-    public event Action<int> onHealthChanged;
+    public event System.Action<int> onScoreChanged;
+    public event System.Action<int> onHealthChanged;
     public event Action onGameOver;
 
     public int health = 100;
